@@ -1,3 +1,20 @@
+# Thursdays with RJ
+
+#### Required Tools
+IntelliJ
+JVM - java virtual machine
+JDK - java developer kit
+SKDMAN - package manager
+* $ sdk install package version
+Gradle - build tool (Ant, maven, gulp, grunt)
+
+#### Create a project
+1.  gradle init
+1.  ./gradlew tasks (see available gradle tasks)
+1.  update build.gradle wit this build script
+
+`build.gradle`
+```
 buildscript {
     repositories {
         mavenCentral()
@@ -29,3 +46,4 @@ dependencies {
     // end::actuator[]
     testCompile("junit:junit")
 }
+```
