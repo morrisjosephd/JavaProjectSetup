@@ -47,3 +47,11 @@ dependencies {
     testCompile("junit:junit")
 }
 ```
+
+After updating build.gradle run ./gradlew check to confirm we can build.
+
+#### Import Project into IntelliJ
+From IntelliJ
+1.  Select project and Import
+1.  Next screen import from Gradle (next)
+1.  Select 'Use auto-import' and 'create directories for empty content roots automatically' and
