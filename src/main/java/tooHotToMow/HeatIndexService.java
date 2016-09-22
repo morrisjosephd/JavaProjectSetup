@@ -1,11 +1,11 @@
 package tooHotToMow;
 
-public class Weather {
+public class HeatIndexService {
 
     Double temp;
     Double rh;
 
-    public Weather(Double temp, Double rh) {
+    public HeatIndexService(Double temp, Double rh) {
         this.temp = temp;
         this.rh = rh;
     }
@@ -17,10 +17,22 @@ public class Weather {
         }
 
         if(shouldAddLowHumidityAdjustment()) {
-            return rothfuszRegression() + lowHumidiytAdjustment();
+            return rothfuszRegression() - lowHumidiytAdjustment();
+        }
+
+        if(shouldAddHighHumidityAdjusment()) {
+            return rothfuszRegression() + highHumidityAdjustment();
         }
 
         return rothfuszRegression();
+    }
+
+    private Double highHumidityAdjustment() {
+        return ((rh-85)/10) * ((87 - temp)/5);
+    }
+
+    private boolean shouldAddHighHumidityAdjusment() {
+        return rh > 85.0 && temp > 80.0 && temp < 87.0;
     }
 
     private Double lowHumidiytAdjustment() {
